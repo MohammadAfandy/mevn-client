@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = '/api/players/'
+const url = '/api/node/players/'
 
 class PlayerService {
 	// GET

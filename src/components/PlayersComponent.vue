@@ -60,7 +60,7 @@ export default {
 	},
 	methods: {
 		async createPlayer() {
-			await PlayerService.insertPlayer(JSON.parse(JSON.stringify(this.newPlayer)))
+			let result = PlayerService.insertPlayer(JSON.parse(JSON.stringify(this.newPlayer)))
 			this.players = await PlayerService.getPlayers()
 		},
 		async deletePlayer(id) {

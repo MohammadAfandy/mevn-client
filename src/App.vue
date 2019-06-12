@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <PlayersComponent msg="Welcome to Your Vue.js App"/>
+    <Navbar class="navbar" />
+    <img alt="Vue logo" src="./assets/logo.png" class="logo">
+    <router-view />
+    <!-- <PlayersComponent msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>
 
 <script>
-import PlayersComponent from './components/PlayersComponent.vue'
+import Navbar from './components/NavbarComponent'
 
 export default {
   name: 'app',
   components: {
-    PlayersComponent
+    'Navbar': Navbar
   }
 }
 </script>
@@ -21,8 +23,12 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px 100px;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
 }
 </style>
