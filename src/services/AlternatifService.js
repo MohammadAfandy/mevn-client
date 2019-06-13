@@ -25,6 +25,11 @@ class AlternatifService {
 		return axios.post(url, data)
 	}
 
+	// UPDATE
+	static updateAlternatif(data) {
+		return axios.put(`${url}${data.id}`, data)
+	}
+
 	// DELETE
 	static deleteAlternatif(id) {
 		return axios.delete(`${url}${id}`)

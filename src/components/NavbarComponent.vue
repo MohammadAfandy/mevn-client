@@ -1,43 +1,59 @@
 <template>
   <div>
-    <b-navbar toggleable="sm" type="dark" variant="dark" fixed="top">
-      <b-navbar-brand href="#">MEVN</b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item v-for="link in links" :key="link.id" :to="`${link.page}`">{{ link.text }}</b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+    <v-navigation-drawer v-model="drawer" app permanent>
+      <v-toolbar flat class="transparent">
+        <v-list class="pa-0">
+          <v-list-tile avatar>
+            <v-list-tile-avatar>
+              <img src="https://randomuser.me/api/portraits/men/85.jpg">
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>Mohammad Afandy</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-toolbar>
+
+      <v-list class="pt-0" dense>
+        <v-divider></v-divider>
+        <v-list-tile v-for="link in links" :key="link.title" :to="link.page">
+          <v-list-tile-action>
+            <v-icon>{{ link.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ link.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Navbar",
+  name: 'Navbar',
   data() {
     return {
+      drawer: true,
+      right: null,
       links: [
         {
-          id: 0,
-          text: "Hello World",
-          page: "/helloworld"
+          title: 'Hello World',
+          page: '/helloworld',
+          icon: 'person'
         },
         {
-          id: 1,
-          text: "Players",
-          page: "/player"
+          title: 'Players',
+          page: '/player',
+          icon: 'dashboard'
         },
         {
-          id: 3,
-          text: "Alternatif",
-          page: "/alternatif"
+          title: 'Alternatif',
+          page: '/alternatif',
+          icon: 'question_answer'
         }
       ]
     };
   }
 };
 </script>
-
-<style scoped>
-</style>
