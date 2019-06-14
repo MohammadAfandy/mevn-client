@@ -4,7 +4,7 @@
       <Navbar class="navbar"/>
       <v-content class="content">
         <div class="logo">
-          <img alt="Vue logo" src="./assets/logo.png" class="img-logo" />
+          <img alt="Vue logo" src="./assets/logo.png" class="img-logo">
         </div>
         <router-view/>
       </v-content>
@@ -53,6 +53,23 @@ export default {
         return Promise.reject(error);
       }
     );
+  },
+  mounted() {
+    let botpressScript = document.createElement("script");
+    botpressScript.setAttribute(
+      "src",
+      "http://localhost:3000/assets/modules/channel-web/inject.js"
+    );
+    document.head.appendChild(botpressScript);
+    window.botpressWebChat.init({
+      host: "http://localhost:3000",
+      botId: "pandibot"
+    });
+  },
+  watch: {
+    $route(to) {
+      document.title = to.meta.title || "My MEVN App | Mohammad Afandy";
+    }
   }
 };
 </script>

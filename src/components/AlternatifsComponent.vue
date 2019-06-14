@@ -46,9 +46,9 @@
     <v-snackbar
       v-model="popup.snackbar"
       :timeout="popup.timeout"
-      :top="true"
+      :top="popup.top"
       :color="popup.color"
-      :auto-height="popup.autoHeight"
+      :multi-line="popup.multiLine"
     >
       <ul style="list-style: none;padding-left: 0;">
         <li v-for="txt in popup.text" :key="txt">{{ txt }}</li>
@@ -82,7 +82,9 @@ export default {
         autoHeight: true,
         timeout: 6000,
         text: [],
-        color: "success"
+        color: "success",
+        top: true,
+        multiLine: true
       },
       alternatifs: [],
       form: {
@@ -149,14 +151,13 @@ export default {
       }
     },
     onReset() {
-      this.form = {}
+      this.form.nama_alternatif = ""
+      this.form.keterangan = ""
     },
     showPopup(color, text) {
-      this.popup = {
-        color: color,
-        text: text,
-        snackbar: true
-      }
+      this.popup.color = color
+      this.popup.text = text
+      this.popup.snackbar = true
     },
     showForm(type, data = {}) {
       let headerForm = ''

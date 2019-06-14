@@ -13,16 +13,19 @@ export default new Router({
     {
       path: '/player',
       name: 'Players',
+      meta: { title: 'Players' },
       component: PlayersComponent,
     },
     {
       path: '/helloworld',
       name: 'Hello',
+      meta: { title: 'Hello World' },
       component: HelloWorld,
     },
     {
       path: '/alternatif',
       name: 'Alternatif',
+      meta: { title: 'Alternatif' },
       component: AlternatifsComponent,
     },
   ],
