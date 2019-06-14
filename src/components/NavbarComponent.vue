@@ -1,6 +1,14 @@
 <template>
   <div>
-    <v-navigation-drawer v-model="drawer" app permanent>
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      dark
+      floating
+      persistent
+      mobile-break-point="991"
+      width="260"
+    >
       <v-toolbar flat class="transparent">
         <v-list class="pa-0">
           <v-list-tile avatar>
@@ -26,31 +34,32 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+    <v-btn color="dark" dark @click.stop="drawer = !drawer"><v-icon>menu</v-icon></v-btn>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Navbar',
+  name: "Navbar",
   data() {
     return {
       drawer: true,
       right: null,
       links: [
         {
-          title: 'Hello World',
-          page: '/helloworld',
-          icon: 'person'
+          title: "Hello World",
+          page: "/helloworld",
+          icon: "person"
         },
         {
-          title: 'Players',
-          page: '/player',
-          icon: 'dashboard'
+          title: "Players",
+          page: "/player",
+          icon: "dashboard"
         },
         {
-          title: 'Alternatif',
-          page: '/alternatif',
-          icon: 'question_answer'
+          title: "Alternatif",
+          page: "/alternatif",
+          icon: "question_answer"
         }
       ]
     };
